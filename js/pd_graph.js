@@ -251,6 +251,27 @@ define(["jquery", "config"], function($, config){
 		 */
 		contextmenu: function(){},
 
+		//函数节流
+		throttle: function(handler){
+			var starttime = new Date();
+			var timeoutid = null;			
+			return function(){
+				console.log('move');
+				var aArgs = arguments;
+				var _that = this;
+				var currenttime = new Date();
+				clearTimeout(timeoutid);
+				if(currenttime - starttime >= 50){
+					starttime = currenttime;
+					handler.apply(_that, aArgs);
+				}else{
+					timeoutid = setTimeout(function(){
+						handler.apply(_that, aArgs);
+					}, 50);
+				}
+			};
+		},
+
 		/**
 		 * 对象drag事件
 		 */
@@ -267,6 +288,8 @@ define(["jquery", "config"], function($, config){
 			var is_move = false;
 			var pos_x = pos_y = 0;
 
+			var _moveThrottle = _this.throttle(_move);
+
 			$(_this.dom).mousedown(function(e){
 				max_x = $(svg).width() - size.width - 4;
 				max_y = $(svg).height() - size.height - 4;
@@ -275,10 +298,14 @@ define(["jquery", "config"], function($, config){
 				init_y = e.pageY;
 				pos_x = _this.x;
 				pos_y = _this.y;
-				doc.on("mousemove", _move).on("mouseup", _up);
+				doc.on("mousemove", _moveThrottle).on("mouseup", _up);
+
 			});
 
 			function _move(e){
+				//
+				console.log('--run--');
+
 				is_move = true;
 
 				x = pos_x + e.pageX - init_x;
@@ -322,7 +349,7 @@ define(["jquery", "config"], function($, config){
 			function _up(e){
 				is_move = false;
 
-				doc.off("mousemove", _move).off("mouseup", _up);
+				doc.off("mousemove", _moveThrottle).off("mouseup", _up);
 			}
 		},
 		
