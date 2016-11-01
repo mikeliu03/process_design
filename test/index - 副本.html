@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>流程设计器</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet" />
+		<script src="require.js" data-main="js/main"></script>
+	</head>
+	<body>
+		<!-- 后台隐藏域存放位置 -->
+		<div class="hide">
+			<input type="hidden" id="option" value="" />
+			<input type="hidden" id="modelId" value="100001" />
+			<input type="hidden" id="corpId" value="corpId_value"/>
+			<input type="hidden" id="codeRuleId" value="codeRuleId_value"/>
+			<input type="hidden" id="wfBaseId" value="wfBaseId_value"/>
+		</div>
+
+		<header class="header">
+			<h1>ProcessDesigner</h1>
+			<span class="menu icon-minimize" id="menu"></span>
+			<div class="header-r">
+				<span class="icon-cloud-upload" id="save"></span>
+				<span class="icon-open" id="exit"></span>
+			</div>
+		</header>
+
+		<menu class="menus">
+			<h4>开始事件</h4>
+			<ul>
+				<li data-type="start"><span class="icon-record"></span><font>开始事件</font></li>
+			</ul>
+			<h4>任务</h4>
+			<ul>
+				<li data-type="task"><span class="icon-head"></span><font>用户任务</font></li>
+			</ul>
+			<h4>连接对象</h4>
+			<ul>
+				<li data-type="line"><span class="icon-arrow-up rotate-45"></span><font>顺序流</font></li>
+			</ul>
+			<h4>结束事件</h4>
+			<ul>
+				<li data-type="end"><span class="icon-ban"></span><font>结束事件</font></li>
+			</ul>
+		</menu>
+
+		<main class="container">
+			<h2>流程设计</h2>
+			<div class="wrapper-editor ">
+				<div class="site" id="settings">
+					<div id="start_set">
+						<div class="common-shadow">
+							<div class="site-title">属性设置<span class="icon-minimize"></span></div>
+							<div class="flex ">
+								<div class="text-right">环节名称</div>
+								<div class="flex-4"><input type="text" class="form-common" id="start_set_name" data-key="node_attributes.showType" placeholder="环节名称"></div>
+							</div>
+							<div >
+                            	<div class="flex">
+								<div class="text-right">执行者</div>
+								<div class="flex-4">
+									<select class="form-common" id="start_set_executor" data-key="node_attributes.executorType">
+										<option value="0" selected="selected">角色</option>
+										<option value="1">人员</option>
+									</select>
+								</div>
+							</div>
+                                <div class="flex">
+                                    <div class="text-right">执行者表达式</div>
+                                    <div class="flex-4">
+                                        <textarea class="form-common" rows="5" placeholder="执行者表达式" id="start_set_express" data-key="node_attributes.executor"></textarea>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <div class="text-right">执行模式</div>
+                                    <div class="flex-4">
+                                        <select class="form-common" id="start_set_pattern" data-key="node_attributes.pattern">
+                                            <option value="0" selected="selected">抢占模式</option>
+                                            <option value="1">会签模式</option>
+                                            <option value="2">共享模式</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="flex ">
+                                    <div class="text-right">提交方式</div>
+                                    <div class="flex-4 form-list">
+                                        <label>
+                                            <input type="checkbox" id="start_set_mode1" value="000" data-key="node_options.items.0.enable" />提交时，允许变更审批人（不固定）
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="start_set_mode2" value="001" data-key="node_options.items.1.enable" />提交时，允许加签
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" id="start_set_mode3" value="001" data-key="node_options.items.2.enable" />加签完成后，流程回到当前审批人
+                                        </label>
+										<label>
+                                            <input type="checkbox" id="start_set_mode4" value="001" data-key="node_options.items.3.enable" />会签人数
+                                        </label>
+                                    </div>
+                                </div>
+								<div class="flex hide">
+									<div class="text-right">会签人数</div>
+									<div class="flex-4"><input type="text" class="form-common" id="start_set_sign" data-key="node_attributes.minSign" placeholder="会签人数"></div>
+								</div>
+                            </div>
+						</div>
+						<div class="common-shadow">
+							<div class="common-table-title">单据权限<span class="icon-minimize"></span></div>
+							<div class="common-table">
+								<div class="common-header">
+									<div>区域名称</div>
+									<div>可见</div>
+									<div>可编辑</div>
+								</div>
+								<div class="common-items">
+									<div>单据明细区</div>
+									<div>
+										<label class="checbox" id="start_set_form_form_visible" data-key="node_area.items.0.isShow"><span></span><input type="checkbox"></label>
+									</div>
+									<div>
+										<label class="checbox" id="start_set_form_form_edit" data-key="node_area.items.0.isEdit"><span></span><input type="checkbox"></label>
+									</div>
+								</div>
+								<div class="common-items">
+									<div>付款明细区</div>
+									<div>
+										<label class="checbox" id="start_set_form_pay_visible" data-key="node_area.items.1.isShow"><span></span><input type="checkbox"></label>
+									</div>
+									<div>
+										<label class="checbox" id="start_set_form_pay_edit" data-key="node_area.items.1.isEdit"><span></span><input type="checkbox"></label>
+									</div>
+								</div>
+								<div class="common-items">
+									<div>审批记录区</div>
+									<div>
+										<label class="checbox" id="start_set_form_approve_visible" data-key="node_area.items.2.isShow"><span></span><input type="checkbox"></label>
+									</div>
+									<div>
+										<label class="checbox" id="start_set_form_approve_edit" data-key="node_area.items.2.isEdit"><span></span><input type="checkbox"></label>
+									</div>
+								</div>
+								<div class="common-items">
+									<div>冲销记录区</div>
+									<div>
+										<label class="checbox" id="start_set_form_charge_visible" data-key="node_area.items.3.isShow"><span></span><input type="checkbox"></label>
+									</div>
+									<div>
+										<label class="checbox" id="start_set_form_charge_edit" data-key="node_area.items.3.isEdit"><span></span><input type="checkbox"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="common-shadow">
+							<div class="common-table-title">字段权限<span class="icon-minimize"></span></div>
+							<div class="common-table table-bg" id="start_set_patch">
+								<div class="common-header">
+									<div>区域名称</div>
+									<div>可见</div>
+									<div>可编辑</div>
+									<div>退回</div>
+									<div>必填</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="line_set">
+						<div class="common-shadow">
+							<div class="site-title">属性设置<span class="icon-cog"></span></div>
+							<div class="flex">
+								<div class="text-right">路径名称</div>
+								<div class="flex-4"><input type="text" class="form-common" id="line_set_name" disabled="disabled" data-key="node_attributes.showType"></div>
+							</div>
+							<div class="flex">
+								<div class="text-right">默认路径</div>
+								<div class="flex-4 form-list">
+									<label>
+										<input type="checkbox" id="line_set_path" value="001" data-key="node_attributes.default_path" />设置改路径为默认路径
+									</label>
+								</div>
+							</div>
+							<div class="flex border-none">
+								<div class="text-right">流转条件表达式</div>
+								<div class="flex-4"><textarea class="form-common" rows="5" id="line_set_express" data-key="node_attributes.express" readonly placeholder="点击设置"></textarea></div>
+								<!-- <div class="flex-4"><input type="text" class="form-common" id="line_set_express" data-key="node_attributes.express" placeholder="流转条件表达式"></div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="editor common-shadow">
+					<svg xmlns="http://www.w3.org/2000/svg" id="svg" style="width:100%; height:100%; position:absolute; top:0; left:0; z-index:1;box-sizing:content-box;">
+						<defs>
+							<marker id="flow_start" refX="1" refY="5" markerUnits="userSpaceOnUse" markerWidth="17" markerHeight="11" orient="auto">
+								<path d="M 0 6 L 8 1 L 15 5 L 8 9 L 1 5" fill="white" stroke="black" stroke-width="1" display="none"/>
+								<path d="M 5 0 L 11 10" fill="white" stroke="black" stroke-width="1" display="none"/>
+							</marker>
+							<marker id="flow_end" refX="15" refY="6" markerUnits="userSpaceOnUse" markerWidth="15" markerHeight="12" orient="auto">
+								<path d="M 0 1 L 15 6 L 0 11z" fill="black" stroke="black" stroke-linejoin="round" stroke-width="2"/>
+							</marker>
+						</defs>
+						<g stroke="black" font-family="Verdana, sans-serif" font-size-adjust="none" font-style="normal" font-variant="normal" font-weight="normal" line-height="normal" font-size="12">
+							<g class="stencils">
+								<!-- 存放除连接线外的其他节点 -->
+								<g class="children" id="svg_children"></g>
+								<!-- 存放连接线节点 -->
+								<g class="edge" id="svg_edge"></g>
+							</g>
+							<g class="gid">
+								<g id="gid_selected" display="none"><rect x="0" y="0" stroke-width="1" stroke="#777777" fill="none" stroke-dasharray="2,2" pointer-events="none"/></g>
+							</g>
+						</g>
+					</svg>
+					<div id="svg_help">
+						<div id="svg_active" class="svg-active"><div class="svg-active-inner"></div></div>
+						<div id="svg_fobidden" class="svg-active svg-fobidden"><div class="svg-active-inner"></div></div>
+					</div>
+				</div>
+			</div>
+			<footer>© Copyright 2015 KURRENT<span>ProcessDesigner<a href="javascript:void(0);" class="icon-arrow-up"></a></span></footer>
+		</main>
+
+		<div class="drag hide" id="drag"><span class="icon-record"></span>开始事件</div>
+
+		<div class="alert-bg" id="alert">
+			<div class="alert">
+				<div class="alert-title">提示<span class="icon-cross pull-right"></span></div>
+				<div class="alert-body"></div>
+				<div class="alert-footer">
+					<button type="button">确认</button>
+				</div>
+			</div>
+		</div>
+		
+		<div id="line_express_model" class="hide">
+			<div class="express-set-line">
+				<select class="form-common" name="express-name">
+					<option value="" selected="selected">请选择</option>
+					<option value="billDetailAmount" data-value=">,<,=,>=,<=">单据明细金额</option>
+					<option value="billTotalAmount" data-value=">,<,=,>=,<=">单据总金额</option>
+					<option value="proposerPost" data-value="=,!=">申请人岗位隶属于</option>
+					<option value="proposerRank" data-value="=,!=">申请人职级隶属于</option>
+					<option value="proposerDept" data-value="=,!=">申请人职级不属于</option>
+					<option value="travelExpense" data-value="=">差旅费</option>
+				</select>
+				<a href="javascript:void(0);" ><span class="icon-circle-cross"></span></a>
+				<select class="form-common" name="express-conect">
+					<option value="" selected="selected">请选择</option>
+					<option value="&&">&&</option>
+					<option value="||">||</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="alert-bg alert-line" id="dialog_line">
+			<div class="alert">
+				<div class="alert-title">流转条件表达式<span class="icon-cross pull-right"></span></div>
+				<div class="alert-body">
+					<div class="express-set">
+						<div class="express-set-line">
+							<select class="form-common" name="express-name">
+								<option value="" selected="selected" data-value="">请选择</option>
+								<option value="billDetailAmount" data-value=">,<,=,>=,<=">单据明细金额</option>
+								<option value="billTotalAmount" data-value=">,<,=,>=,<=">单据总金额</option>
+								<option value="proposerPost" data-value="=,!=">申请人岗位隶属于</option>
+								<option value="proposerRank" data-value="=,!=">申请人职级隶属于</option>
+								<option value="proposerDept" data-value="=,!=">申请人职级不属于</option>
+								<option value="travelExpense" data-value="=">差旅费</option>
+							</select>
+							<a href="javascript:void(0);" ><span class="icon-circle-cross"></span></a>
+							<select class="form-common" name="express-conect">
+								<option value="" selected="selected">请选择</option>
+								<option value="&&">&&</option>
+								<option value="||">||</option>
+							</select>
+						</div>
+					</div>
+					<div class="express-preview">
+						<textarea class="form-common" rows="5" id="express_preview" disabled="disabled"></textarea>
+					</div>
+				</div>
+				<div class="alert-footer">
+					<button type="button">确认</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

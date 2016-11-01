@@ -1,0 +1,419 @@
+{
+  "nodes": [
+    {
+      "flow_node": {
+        "elem_type": "start",
+        "x": 100,
+        "y": 100,
+        "id": "start-sid-82E6AE83-8983-4B58-A691-30CA81C1915D",
+        "eventId": "start"
+      },
+      "properties": {
+        "node_attributes": {
+          "lines": [],
+          "corpId": "corpId_value",
+          "nodeId": "start",
+          "showType": "开始",
+          "codeType": "start",
+          "codeRuleId": "codeRuleId_value",
+          "wfBaseId": "wfBaseId_value",
+          "linkType": 0,
+          "executor": "指定人员[1001];",
+          "executor_arr": "[[\"people\",\"1001\"]]",
+          "executorIds": [],
+          "pattern": 0,
+          "minSign": ""
+        },
+        "node_area": {
+          "corpId": "corpId_value",
+          "nodeId": "start",
+          "items": [
+            {
+              "areaName": "明细区",
+              "areaCode": "detail",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "付款区",
+              "areaCode": "payment",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "冲销区",
+              "areaCode": "rever",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "分摊区",
+              "areaCode": "share",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "还款区",
+              "areaCode": "repay",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            }
+          ]
+        },
+        "node_items": {
+          "corpId": "corpId_value",
+          "nodeId": "start",
+          "items": [
+            [
+              {
+                "title": "aaaaaaaa"
+              },
+              {
+                "itemName": "字段1",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段2",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段3",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              }
+            ],
+            [
+              {
+                "title": "bbbbbbbb"
+              },
+              {
+                "itemName": "字段1",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段2",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段3",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              }
+            ]
+          ]
+        },
+        "node_options": {
+          "corpId": "corpId_value",
+          "nodeId": "start",
+          "items": [
+            {
+              "accessCode": "operateAttachment",
+              "accessName": "允许操作附件",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            },
+            {
+              "accessCode": "viewAttachment",
+              "accessName": "允许查看附件",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "000"
+            },
+            {
+              "accessCode": "viewBudget",
+              "accessName": "允许查看预算",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "000"
+            },
+            {
+              "accessCode": "changeApprover",
+              "accessName": "提交时，允许变更审批人（不固定）",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            },
+            {
+              "accessCode": "dontAllowSkip",
+              "accessName": "如果审批人员为空，不允许跳过",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "flow_node": {
+        "elem_type": "end",
+        "x": 600,
+        "y": 100,
+        "id": "end-sid-5B8331A1-81ED-4C0C-8CD5-C3F7B27607C2",
+        "eventId": "end"
+      },
+      "properties": {}
+    },
+    {
+      "flow_node": {
+        "elem_type": "usertask",
+        "x": 282,
+        "y": 76,
+        "id": "task-sid-DC06AAE0-0398-401E-BC6D-32FD23448AB0",
+        "taskId": "task1446098560192"
+      },
+      "properties": {
+        "node_attributes": {
+          "lines": [
+            "line-sid-EBF2398D-D4EC-4B92-8D51-9E352205D350",
+            "line-sid-7255CCB7-4F72-4CFD-957D-C5FE2C39401A"
+          ],
+          "corpId": "corpId_value",
+          "nodeId": "task1446098560192",
+          "showType": "用户任务-1",
+          "codeType": "usertask",
+          "codeRuleId": "codeRuleId_value",
+          "wfBaseId": "wfBaseId_value",
+          "linkType": 0,
+          "executor": "流程角色[需求流程角色名];",
+          "executor_arr": "[[\"role\",\"需求流程角色名\"]]",
+          "executorIds": [],
+          "pattern": 0,
+          "minSign": ""
+        },
+        "node_area": {
+          "corpId": "corpId_value",
+          "nodeId": "task1446098560192",
+          "items": [
+            {
+              "areaName": "明细区",
+              "areaCode": "detail",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "付款区",
+              "areaCode": "payment",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "冲销区",
+              "areaCode": "rever",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "分摊区",
+              "areaCode": "share",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            },
+            {
+              "areaName": "还款区",
+              "areaCode": "repay",
+              "isShow": "001",
+              "wfBaseId": "wfBaseId_value",
+              "isEdit": "001"
+            }
+          ]
+        },
+        "node_items": {
+          "corpId": "corpId_value",
+          "nodeId": "task1446098560192",
+          "items": [
+            [
+              {
+                "title": "aaaaaaaa"
+              },
+              {
+                "itemName": "字段1",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段2",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段3",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              }
+            ],
+            [
+              {
+                "title": "bbbbbbbb"
+              },
+              {
+                "itemName": "字段1",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段2",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              },
+              {
+                "itemName": "字段3",
+                "itemId": "001",
+                "isEdit": "000",
+                "isShow": "000",
+                "isNotNull": "000",
+                "wfBaseId": "wfBaseId_value",
+                "isBackEdit": "000"
+              }
+            ]
+          ]
+        },
+        "node_options": {
+          "corpId": "corpId_value",
+          "nodeId": "task1446098560192",
+          "items": [
+            {
+              "accessCode": "operateAttachment",
+              "accessName": "允许操作附件",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            },
+            {
+              "accessCode": "viewAttachment",
+              "accessName": "允许查看附件",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "000"
+            },
+            {
+              "accessCode": "viewBudget",
+              "accessName": "允许查看预算",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "000"
+            },
+            {
+              "accessCode": "changeApprover",
+              "accessName": "提交时，允许变更审批人（不固定）",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            },
+            {
+              "accessCode": "dontAllowSkip",
+              "accessName": "如果审批人员为空，不允许跳过",
+              "wfBaseId": "wfBaseId_value",
+              "enable": "001"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "flow_node": {
+        "elem_type": "line",
+        "startX": 382,
+        "startY": 115.85900006909408,
+        "endX": 600,
+        "endY": 115.05530043363267,
+        "sourceRef": "task-sid-DC06AAE0-0398-401E-BC6D-32FD23448AB0",
+        "targetRef": "end-sid-5B8331A1-81ED-4C0C-8CD5-C3F7B27607C2",
+        "id": "line-sid-EBF2398D-D4EC-4B92-8D51-9E352205D350",
+        "lineId": "line1446098561819"
+      },
+      "properties": {
+        "node_attributes": {
+          "corpId": "corpId_value",
+          "nodeId": "line1446098561819",
+          "codeType": "line",
+          "wfBaseId": "wfBaseId_value",
+          "showType": "用户任务-1-结束节点",
+          "default_path": "001",
+          "sourceRef": "task1446098560192",
+          "targetRef": "end",
+          "express": "单据明细金额<[100]",
+          "express_hidden": "billDetailAmount<100",
+          "express_arr": "[[\"billDetailAmount\",\"<\",\"100\"]]"
+        }
+      }
+    },
+    {
+      "flow_node": {
+        "elem_type": "line",
+        "startX": 130,
+        "startY": 115.07333857413143,
+        "endX": 282,
+        "endY": 115.81650279199653,
+        "sourceRef": "start-sid-82E6AE83-8983-4B58-A691-30CA81C1915D",
+        "targetRef": "task-sid-DC06AAE0-0398-401E-BC6D-32FD23448AB0",
+        "id": "line-sid-7255CCB7-4F72-4CFD-957D-C5FE2C39401A",
+        "lineId": "line1446098563034"
+      },
+      "properties": {
+        "node_attributes": {
+          "corpId": "corpId_value",
+          "nodeId": "line1446098563034",
+          "codeType": "line",
+          "wfBaseId": "wfBaseId_value",
+          "showType": "开始-用户任务-1",
+          "default_path": "001",
+          "sourceRef": "start",
+          "targetRef": "task1446098560192",
+          "express": "",
+          "express_hidden": "",
+          "express_arr": ""
+        }
+      }
+    }
+  ]
+}
